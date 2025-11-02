@@ -11,12 +11,6 @@ function App() {
         return () => clearTimeout(timer);
     }, []);
 
-    const productos = [
-        { id: 1, nombre: "Camiseta negra", precio: "20€" },
-        { id: 2, nombre: "Sudadera verde", precio: "35€" },
-        { id: 3, nombre: "Pantalón denim", precio: "40€" },
-    ];
-
     return (
         <>
             <AnimatePresence>
@@ -31,7 +25,7 @@ function App() {
                     >
                         <motion.img
                             src={logo}
-                            alt="Evanari Logo"
+                            alt="Logo Evanari"
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 1 }}
@@ -44,7 +38,7 @@ function App() {
             {!showIntro && (
                 <div className="app">
                     <nav className="menu">
-                        <img src={logo} alt="Evanari Logo" className="menu-logo" />
+                        <img src={logo} alt="Logo Evanari" className="menu-logo" />
                         <ul>
                             <li onClick={() => setActiveSection("inicio")}>Inicio</li>
                             <li onClick={() => setActiveSection("tienda")}>Tienda</li>
@@ -59,44 +53,27 @@ function App() {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1 }}
                         >
-                            <h1>Evanari</h1>
-                            <p>Tu estilo, tu esencia.</p>
+                            {/* Fondo animado */}
+                            <motion.div
+                                className="fondo-animado"
+                                animate={{ backgroundPositionX: ["0%", "100%"] }}
+                                transition={{ repeat: Infinity, repeatType: "loop", duration: 30, ease: "linear" }}
+                            />
                         </motion.div>
                     )}
 
                     {activeSection === "tienda" && (
-                        <motion.div
-                            className="tienda"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1 }}
-                        >
-                            {productos.map((prod) => (
-                                <motion.div
-                                    key={prod.id}
-                                    className="producto"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: prod.id * 0.2 }}
-                                >
-                                    <h3>{prod.nombre}</h3>
-                                    <p>{prod.precio}</p>
-                                </motion.div>
-                            ))}
-                        </motion.div>
+                        <div className="tienda">
+                            {/* Aquí iría tu tienda */}
+                        </div>
                     )}
 
                     {activeSection === "contacto" && (
-                        <motion.div
-                            className="contacto"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1 }}
-                        >
+                        <div className="contacto">
                             <h2>Contacto</h2>
                             <p>Email: contacto@evanari.com</p>
                             <p>Tel: 123 456 789</p>
-                        </motion.div>
+                        </div>
                     )}
                 </div>
             )}

@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+. /* App general */
+.app {
+    font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Menú */
+.menu {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007f7f;
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-logo {
+    height: 40px;
+    margin-right: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.menu li {
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Intro */
+.intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00c2ba;
+}
+
+.intro-logo {
+    height: 100px;
+}
+
+/* Sección Inicio */
+.inicio {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg, #f7dada, #fcdada, #f7dada);
+    background-size: 600% 600%; /* Para animar el gradiente */
+    color: #fff;
+    overflow: hidden;
+    padding: 0 20px;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* Secciones vacías por ahora */
+.tienda, .contacto {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
